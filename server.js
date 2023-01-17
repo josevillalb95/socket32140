@@ -1,7 +1,7 @@
 const express = require('express');
 const { Server: HttpServer } = require('http');
 const { Server: IOServer } = require('socket.io');
-
+const PORT= process.env.PORT||9033
 const app = express();
 const httpServer = new HttpServer(app);
 const io = new IOServer(httpServer);
@@ -24,4 +24,4 @@ io.on('connection', socket => {
     })
 });
 
-httpServer.listen(8080, () => console.log('Server ON'));
+httpServer.listen(PORT, () => console.log('Server ON'));
